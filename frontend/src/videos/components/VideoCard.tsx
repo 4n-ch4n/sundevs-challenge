@@ -47,20 +47,20 @@ export const VideoCard = ({
           <img
             src={thumbnail}
             alt={title}
-            onError={(e) => e.currentTarget.src = '/placeholder.svg'}
+            onError={(e) => (e.currentTarget.src = '/placeholder.svg')}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent" />
 
           <div
-            className={
-              (cn('absolute flex items-center backdrop-blur-sm rounded-full'),
+            className={cn(
+              'absolute flex items-center backdrop-blur-sm rounded-full',
               isCrown
                 ? 'top-4 right-4 gap-1.5 bg-accent/90 px-3 py-1.5'
-                : 'top-2 right-2 gap-1 bg-secondary/80 px-2 py-1')
-            }
+                : 'top-2 right-2 gap-1 bg-secondary/80 px-2 py-1',
+            )}
           >
-            <Flame className="w-3 h-3 text-accent" />
+            <Flame className="w-3 h-3" />
             <span className="text-xs font-semibold text-foreground">
               {(hypeLevel * 100).toFixed(1)}%
             </span>

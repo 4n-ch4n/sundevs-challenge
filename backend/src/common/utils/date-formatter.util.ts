@@ -1,5 +1,4 @@
 export class DateFormatter {
-  // Definimos las unidades de mayor a menor para un ciclo más limpio
   private static readonly timeUnits: {
     unit: Intl.RelativeTimeFormatUnit;
     seconds: number;
@@ -19,7 +18,6 @@ export class DateFormatter {
 
     const formatter = new Intl.RelativeTimeFormat('es', { numeric: 'auto' });
 
-    // Buscamos la primera unidad que quepa en la diferencia de segundos
     for (const { unit, seconds } of this.timeUnits) {
       if (absSeconds >= seconds || unit === 'second') {
         const value = Math.round(secondsDifference / seconds);

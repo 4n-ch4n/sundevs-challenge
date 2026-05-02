@@ -28,6 +28,7 @@ export const CustomPagination = ({ totalPages, totalVideos }: Props) => {
       </div>
       <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
         <Button
+          className="cursor-pointer"
           variant="outline"
           size="icon"
           disabled={page === 1}
@@ -38,6 +39,7 @@ export const CustomPagination = ({ totalPages, totalVideos }: Props) => {
 
         {Array.from({ length: totalPages }).map((_, index) => (
           <Button
+            className="cursor-pointer"
             key={index}
             variant={page === index + 1 ? 'default' : 'outline'}
             size="icon"
@@ -48,6 +50,7 @@ export const CustomPagination = ({ totalPages, totalVideos }: Props) => {
         ))}
 
         <Button
+          className="cursor-pointer"
           variant="outline"
           size="icon"
           disabled={page === totalPages}
