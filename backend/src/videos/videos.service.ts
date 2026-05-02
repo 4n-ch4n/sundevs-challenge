@@ -15,11 +15,14 @@ export class VideosService {
     const videos: Video[] = rawVideos.map((rawVideo) => {
       let hypeLevel = 0;
 
-      if (rawVideo.statistics.commentCount) {
+      if (
+        rawVideo.statistics.commentCount &&
+        Number(rawVideo.statistics.viewCount) > 0
+      ) {
         hypeLevel +=
           (Number(rawVideo.statistics.likeCount) +
             Number(rawVideo.statistics.commentCount)) /
-            Number(rawVideo.statistics.viewCount) || 1;
+          Number(rawVideo.statistics.viewCount);
       }
 
       if (rawVideo.snippet.title.toLowerCase().includes('tutorial')) {

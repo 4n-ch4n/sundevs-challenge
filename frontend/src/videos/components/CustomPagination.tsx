@@ -1,0 +1,61 @@
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useSearchParams } from 'react-router';
+
+interface Props {
+  totalPages: number;
+  totalVideos: number;
+}
+
+export const CustomPagination = ({ totalPages, totalVideos }: Props) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const queryPage = searchParams.get('page') ?? '1';
+  const page = isNaN(+queryPage) ? 1 : +queryPage;
+
+  const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+    searchParams.set('page', page.toString());
+    setSearchParams(searchParams);
+  };
+
+  return (
+    <div className="flex flex-col gap-4 mt-8">
+      <div className="flex items-center justify-between text-sm text-muted-foreground">
+        <p>
+          Mostrando página {page} de {totalPages} ({totalVideos} videos)
+        </p>
+      </div>
+      <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
+        <Button
+          variant="outline"
+          size="icon"
+          disabled={page === 1}
+          onClick={() => handlePageChange(page - 1)}
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </Button>
+
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <Button
+            key={index}
+            variant={page === index + 1 ? 'default' : 'outline'}
+            size="icon"
+            onClick={() => handlePageChange(index + 1)}
+          >
+            {index + 1}
+          </Button>
+        ))}
+
+        <Button
+          variant="outline"
+          size="icon"
+          disabled={page === totalPages}
+          onClick={() => handlePageChange(page + 1)}
+        >
+          <ChevronRight className="h-4 w-4" />
+        </Button>
+      </div>
+    </div>
+  );
+};

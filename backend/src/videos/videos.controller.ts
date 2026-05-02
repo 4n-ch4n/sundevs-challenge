@@ -12,7 +12,7 @@ export class VideosController {
   @Get()
   @ApiResponse({
     status: 200,
-    description: 'List of videos retrieved successfully.',
+    description: 'Lista de videos obtenida exitosamente.',
     type: [Video],
   })
   findAll(@Query() paginationDto: PaginationDto) {
