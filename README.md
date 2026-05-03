@@ -4,6 +4,16 @@
 
 Una aplicación Fullstack construida con **NestJS** y **React (Vite)** para procesar y visualizar un listado de videos extraídos de la API de YouTube. La aplicación calcula un "Nivel de Hype" personalizado para cada video y destaca visualmente a la "Joya de la Corona" (el video con mayor hype).
 
+## Deployed App
+
+El proyecto se encuentra desplegado y funcionando en la web para facilitar su evaluación:
+
+- **Frontend (Netlify):** [https://sundevs-challenge-frontend.netlify.app/](https://sundevs-challenge-frontend.netlify.app/)
+- **Backend API (Render):** [https://sundevs-challenge-backend.onrender.com/api/videos](https://sundevs-challenge-backend.onrender.com/api/videos)
+- **Documentación Swagger:** [https://sundevs-challenge-backend.onrender.com/api](https://sundevs-challenge-backend.onrender.com/api)
+
+> **⚠️ Nota importante sobre el Backend en Render:** La API está alojada en la capa gratuita de Render. Si el servidor no recibe visitas por 15 minutos, entra en hibernación. **La primera vez que abras el Frontend, la petición puede tardar alrededor de 50 segundos en completarse** mientras la app de NestJS "despierta". Si ves un error inicial, por favor espera unos segundos y refresca la página (las siguientes peticiones serán inmediatas).
+
 ## Tecnologías Principales
 
 - **Backend:** NestJS, TypeScript, Jest (Unit Testing), Swagger (OpenAPI).
